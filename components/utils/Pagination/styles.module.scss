@@ -1,0 +1,45 @@
+.pagination {
+  margin-top: 22px;
+  .paginationList {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    .pageItem,
+    .pageItemActive {
+      border: 1px solid $gray-C4;
+      min-width: 40px;
+      height: 40px;
+      @include borderRadius(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $gray-70;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 26px;
+      letter-spacing: 0%;
+      cursor: pointer;
+      @include transition(0.3s);
+      svg {
+        color: $gray-70;
+        font-size: 18px;
+      }
+    }
+    .pageItem {
+      &:hover {
+        border-color: $primary;
+        background-color: $primary;
+        color: $white;
+        svg {
+          color: $white;
+        }
+      }
+    }
+    .pageItemActive {
+      border-color: $primary;
+      background-color: $primary;
+      color: $white;
+    }
+  }
+}

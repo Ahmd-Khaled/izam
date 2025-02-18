@@ -1,0 +1,33 @@
+.swipeButtonOn,
+.swipeButtonOff {
+  width: 65px;
+  height: 36px;
+  @include borderRadius(130px);
+  background-color: $gray-C4;
+  position: relative;
+  @include transition(0.3s);
+
+  .on,
+  .off {
+    position: absolute;
+    top: 3px;
+    background: $white;
+    width: 29px;
+    height: 29px;
+    @include borderRadius(50%);
+    @include transition(0.3s);
+  }
+  .on {
+    right: 3px;
+    background-color: $red-ED;
+  }
+  .off {
+    left: 3px;
+  }
+}
+
+.swipeButtonOff {
+  .off {
+    left: 3px;
+  }
+}

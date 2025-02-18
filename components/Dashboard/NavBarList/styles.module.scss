@@ -1,0 +1,63 @@
+.navBarList {
+  padding: 32px 12px;
+  height: 100%;
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 4px $white;
+    background-color: $white;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $primary;
+    outline: 1px solid $primary;
+  }
+  .navList {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    .navItem {
+      .navMainLink {
+        padding: 19px 30px;
+        @include borderRadius(4px);
+        background-color: $gray-F7;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        h4 {
+          color: $black-40;
+          font-weight: 500;
+          font-size: 24px;
+          line-height: 26.22px;
+          letter-spacing: 0%;
+        }
+        svg {
+          font-size: 18px;
+        }
+      }
+      .navSubLinks {
+        padding-top: 14px;
+        padding-inline-start: 53px;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        .navSubItem {
+          .navSubLink {
+            h3 {
+              padding: 13px 0px;
+              color: $black-40;
+              font-weight: 500;
+              font-size: 22px;
+              line-height: 26.22px;
+              letter-spacing: 0%;
+            }
+          }
+        }
+      }
+    }
+  }
+}

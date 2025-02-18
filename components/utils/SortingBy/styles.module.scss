@@ -1,0 +1,74 @@
+.sortBy,
+.sortByClicked {
+  z-index: 900;
+  width: 306px;
+  position: relative;
+  .srtBtn {
+    border: 1px solid transparent;
+    @include borderRadius(11px 11px 0px 0px);
+    width: 100%;
+    height: 66px;
+    // border-bottom: 1px solid transparent;
+    padding: 20px 27px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    span {
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 26.22px;
+      letter-spacing: 0%;
+    }
+    .srtTxt {
+      color: $black-40;
+    }
+    .srtSelected {
+      color: $primary;
+    }
+    svg {
+      color: $primary;
+      font-size: 20px;
+    }
+  }
+  .sortMenu {
+    position: absolute;
+    top: 66px;
+    left: 0px;
+    background-color: $white;
+    width: 100%;
+    @include borderRadius(0px 0px 11px 11px);
+    border: 1px solid $gray-D8;
+    .sortItem,
+    .sortItemActive {
+      color: $gray-70;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 30px;
+      letter-spacing: 0%;
+      padding: 19px 27px;
+      cursor: pointer;
+      @include transition(0.2s);
+    }
+
+    .sortItem {
+      &:hover {
+        color: $primary;
+        // background-color: $gray-F0;
+      }
+    }
+    .sortItemActive {
+      color: $primary;
+      background-color: $gray-F0;
+    }
+  }
+}
+
+.sortByClicked {
+  .srtBtn {
+    background-color: $white;
+    // border-color: $gray-D8;
+
+    border-color: $gray-D8 $gray-D8 transparent $gray-D8;
+  }
+}

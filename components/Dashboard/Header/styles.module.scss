@@ -1,0 +1,123 @@
+.header {
+  height: 98px;
+  width: 100%;
+  background-color: $black-16;
+  display: flex;
+  align-items: center;
+
+  position: sticky;
+  top: 0px;
+  left: 0px;
+  z-index: 1000;
+  box-shadow: $shadow-5;
+  @media (max-width: $md-media) {
+  }
+
+  .container {
+    width: 100%;
+    height: 100%;
+    padding: 16px 88px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    .start {
+      display: flex;
+      align-items: center;
+      gap: 46px;
+      @media (max-width: $xxxl-media) {
+        gap: 24px;
+      }
+      @media (max-width: $xxl-media) {
+        gap: 16px;
+      }
+      .search {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        background-color: $white;
+        border: 1px solid $gray-E9;
+        @include borderRadius(47px);
+        width: 451px;
+        height: 61px;
+        padding: 7px 12px;
+
+        .searchBtn {
+          width: 47px;
+          min-width: 47px;
+          max-width: 47px;
+          height: 47px;
+          min-height: 47px;
+          max-height: 47px;
+          @include borderRadius(50%);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: $primary;
+          @include transition(0.2s);
+          opacity: 1;
+          &:hover {
+            opacity: 0.7;
+          }
+        }
+        input {
+          width: 100%;
+          height: 100%;
+          font-size: 18px;
+          color: $black;
+          @include borderRadius(16px);
+          &::placeholder {
+            color: $gray-C4;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 26.04px;
+            letter-spacing: 2%;
+            @media (max-width: $xxxl-media) {
+              font-size: 18px;
+            }
+            @media (max-width: $xxl-media) {
+              font-size: 16px;
+            }
+          }
+        }
+      }
+    }
+    .navLinks {
+      height: 100%;
+      display: flex;
+      align-items: flex-end;
+      gap: 58px;
+      @media (max-width: $xxxl-media) {
+        gap: 28px;
+      }
+      .navLink {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2px;
+        @include transition(0.2s);
+        opacity: 1;
+        &:hover {
+          opacity: 0.7;
+        }
+        .linkTxt {
+          color: $gray-E6;
+          font-weight: 400;
+          line-height: 27px;
+          letter-spacing: 0%;
+          font-size: 16px;
+          @media (max-width: $xxxl-media) {
+            font-size: 14px;
+          }
+        }
+      }
+      .separator {
+        display: block;
+        height: 55px;
+        width: 1px;
+        background-color: $gray-D6;
+        @include borderRadius(2px);
+      }
+    }
+  }
+}
