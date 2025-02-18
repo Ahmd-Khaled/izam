@@ -2,13 +2,16 @@
 import useGetNavList from "@/hooks/NavBar/useGetNavList";
 import styles from "./styles.module.scss";
 import Link from "next/link";
-import { domainUrl } from "@/hooks/urls";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa6";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 
 const NavBarList = () => {
   const [isMainLinkOpen, setIsMainLinkOpen] = useState(false);
   const [clickedMainLink, setClickedMainLink] = useState(null);
+  const pathname = usePathname();
+
+  // console.log("----------------------pathname:", pathname);
 
   const handleToggleMainLink = (id) => {
     setIsMainLinkOpen((prev) => !prev);
@@ -24,7 +27,11 @@ const NavBarList = () => {
           <li key={item?.id} className={styles.navItem}>
             <Link
               className={styles.navMainLink}
-              href={`${domainUrl}${item?.target}`}
+              href={
+                item?.title === "Qualifications"
+                  ? "/qualifications"
+                  : item?.target
+              }
               onClick={() => handleToggleMainLink(item?.id)}
             >
               <h4>{item?.title}</h4>
@@ -47,7 +54,12 @@ const NavBarList = () => {
                   <li key={child?.id} className={styles.navSubItem}>
                     <Link
                       className={styles.navSubLink}
-                      href={`${domainUrl}${child?.target}`}
+                      // href={`${child?.target}`}
+                      href={
+                        item?.title === "Qualifications"
+                          ? `/qualifications${child?.target}`
+                          : child?.target
+                      }
                     >
                       <h3>{child?.title}</h3>
                     </Link>
