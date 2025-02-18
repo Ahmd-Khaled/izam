@@ -10,7 +10,8 @@
   left: 0px;
   z-index: 1000;
   box-shadow: $shadow-5;
-  @media (max-width: $md-media) {
+  @media (max-width: $xxxl-media) {
+    height: 85px;
   }
 
   .container {
@@ -41,7 +42,11 @@
         width: 451px;
         height: 61px;
         padding: 7px 12px;
-
+        @media (max-width: $xxxl-media) {
+          width: 350px;
+          height: 50px;
+          padding: 7px 9px;
+        }
         .searchBtn {
           width: 47px;
           min-width: 47px;
@@ -56,8 +61,23 @@
           background-color: $primary;
           @include transition(0.2s);
           opacity: 1;
+          svg {
+            font-size: 24px;
+            color: $white;
+          }
           &:hover {
             opacity: 0.7;
+          }
+          @media (max-width: $xxxl-media) {
+            width: 36px;
+            min-width: 36px;
+            max-width: 36px;
+            height: 36px;
+            min-height: 36px;
+            max-height: 36px;
+            svg {
+              font-size: 20px;
+            }
           }
         }
         input {
@@ -73,9 +93,6 @@
             line-height: 26.04px;
             letter-spacing: 2%;
             @media (max-width: $xxxl-media) {
-              font-size: 18px;
-            }
-            @media (max-width: $xxl-media) {
               font-size: 16px;
             }
           }
@@ -100,6 +117,9 @@
         &:hover {
           opacity: 0.7;
         }
+        @media (max-width: $xxxl-media) {
+          gap: 0px;
+        }
         .linkTxt {
           color: $gray-E6;
           font-weight: 400;
@@ -117,6 +137,9 @@
         width: 1px;
         background-color: $gray-D6;
         @include borderRadius(2px);
+        @media (max-width: $xxxl-media) {
+          height: 50px;
+        }
       }
     }
   }

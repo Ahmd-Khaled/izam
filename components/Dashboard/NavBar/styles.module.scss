@@ -23,6 +23,9 @@
           font-size: 25px;
           line-height: 26.22px;
           letter-spacing: 0%;
+          @media (max-width: $xxxl-media) {
+            font-size: 22px;
+          }
         }
       }
       .navHeadEnd {
@@ -32,6 +35,9 @@
         .setBtn {
           svg {
             font-size: 28px;
+            @media (max-width: $xxxl-media) {
+              font-size: 24px;
+            }
           }
         }
         .closeBtn,
@@ -45,6 +51,13 @@
           justify-content: center;
           svg {
             font-size: 24px;
+          }
+          @media (max-width: $xxxl-media) {
+            width: 36px;
+            height: 36px;
+            svg {
+              font-size: 20px;
+            }
           }
         }
         .closeBtn {

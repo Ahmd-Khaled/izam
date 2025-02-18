@@ -34,6 +34,9 @@
           font-size: 24px;
           line-height: 26.22px;
           letter-spacing: 0%;
+          @media (max-width: $xxxl-media) {
+            font-size: 20px;
+          }
         }
         svg {
           font-size: 18px;
@@ -54,6 +57,9 @@
               font-size: 22px;
               line-height: 26.22px;
               letter-spacing: 0%;
+              @media (max-width: $xxxl-media) {
+                font-size: 18px;
+              }
             }
           }
         }

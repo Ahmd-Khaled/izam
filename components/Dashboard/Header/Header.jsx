@@ -2,6 +2,8 @@ import Link from "next/link";
 import styles from "./styles.module.scss";
 import Image from "next/image";
 import Avatar from "../Avatar/Avatar";
+import { CgSearch } from "react-icons/cg";
+import { FiSearch } from "react-icons/fi";
 
 const navLinksList = [
   {
@@ -46,7 +48,8 @@ const Header = () => {
           </Link>
           <form className={styles.search}>
             <button className={styles.searchBtn}>
-              <Image src="/images/search.png" alt="ic" width={21} height={24} />
+              <FiSearch />
+              {/* <Image src="/images/search.png" alt="ic" width={21} height={24} /> */}
             </button>
             <input type="search" placeholder="Search by name, job title, ..." />
           </form>
