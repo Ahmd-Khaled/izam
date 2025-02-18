@@ -54,7 +54,6 @@ const NavBarList = () => {
                   <li key={child?.id} className={styles.navSubItem}>
                     <Link
                       className={styles.navSubLink}
-                      // href={`${child?.target}`}
                       href={
                         item?.title === "Qualifications"
                           ? `/qualifications${child?.target}`
