@@ -6,7 +6,7 @@ const NavBarSideMenu = ({ isOpen, close }) => {
     <div
       className={isOpen ? styles.navBarSideMenu : styles.navBarSideMenuHidden}
     >
-      <NavBarContainer />
+      <NavBarContainer close={close} />
     </div>
   );
 };

@@ -4,7 +4,7 @@ import styles from "./styles.module.scss";
 const NavBar = () => {
   return (
     <nav className={styles.nav}>
-      <NavBarContainer />
+      <NavBarContainer close={console.log("")} />
     </nav>
   );
 };

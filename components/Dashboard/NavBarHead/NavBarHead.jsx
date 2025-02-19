@@ -3,11 +3,15 @@ import styles from "./styles.module.scss";
 import { SlSettings } from "react-icons/sl";
 import { FaArrowLeft, FaCheck } from "react-icons/fa6";
 import { IoClose } from "react-icons/io5";
-const NavBarHead = ({ isDaragDropOpen, handleToggleDragDropList }) => {
+const NavBarHead = ({
+  isDaragDropOpen,
+  handleToggleDragDropList,
+  stepBackHandler,
+}) => {
   return (
     <div className={styles.navHead}>
       <div className={styles.navHeadStart}>
-        <button onClick={console.log("")}>
+        <button onClick={stepBackHandler} className={styles.backBtn}>
           <FaArrowLeft />
         </button>
         <span>Menu</span>

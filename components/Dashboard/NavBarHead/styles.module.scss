@@ -15,14 +15,28 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    svg {
+    .backBtn {
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
       display: none;
-      color: $black-16;
-      font-size: 24px;
+      @include transition(0.2s);
       @media (max-width: $sm-media) {
         display: flex;
       }
+      svg {
+        color: $black-16;
+        font-size: 20px;
+      }
+      &:hover {
+        svg {
+          color: $primary;
+        }
+      }
     }
+
     span {
       color: $black-40;
       font-weight: 500;
