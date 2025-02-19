@@ -5,6 +5,9 @@
   @media (max-width: $xxxl-media) {
     width: 300px;
   }
+  @media (max-width: $lg-media) {
+    display: none;
+  }
   .navContainer {
     height: 100%;
     .navHead {

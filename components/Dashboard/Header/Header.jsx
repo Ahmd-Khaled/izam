@@ -4,6 +4,7 @@ import Image from "next/image";
 import Avatar from "../Avatar/Avatar";
 import { CgSearch } from "react-icons/cg";
 import { FiSearch } from "react-icons/fi";
+import AvatarMobile from "../AvatarMobile/AvatarMobile";
 
 const navLinksList = [
   {
@@ -54,14 +55,10 @@ const Header = () => {
             <input type="search" placeholder="Search by name, job title, ..." />
           </form>
         </div>
-        <div className={styles.navLinks}>
+        <ul className={styles.navLinks}>
           {navLinksList.map((navItem) => (
-            <>
-              <Link
-                key={navItem.id}
-                href={navItem.link}
-                className={styles.navLink}
-              >
+            <li key={navItem.id}>
+              <Link href={navItem.link} className={styles.navLink}>
                 <Image
                   src={navItem.image}
                   alt="ic"
@@ -72,10 +69,17 @@ const Header = () => {
                 <span className={styles.linkTxt}>{navItem.nameEn}</span>
               </Link>
               {navItem.id === 3 && <span className={styles.separator} />}
-            </>
+            </li>
           ))}
+
           <Avatar />
-        </div>
+        </ul>
+      </div>
+      <div className={styles.containerMob}>
+        <AvatarMobile />
+        <Link href="/">
+          <Image src="/images/logo.png" alt="logo" width={59} height={18} />
+        </Link>
       </div>
     </header>
   );

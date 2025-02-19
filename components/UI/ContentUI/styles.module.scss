@@ -2,8 +2,21 @@
   flex: auto;
   height: calc(100vh - 98px);
   background-color: $gray-F5;
-  padding: 20px 60px 47px 24px;
+  padding: 20px 88px 47px 24px;
   overflow-y: scroll;
+  @media (max-width: $xxxl-media) {
+    padding-inline-end: 60px;
+  }
+  @media (max-width: $xxl-media) {
+    padding-top: 10px;
+    padding-inline-end: 40px;
+  }
+  @media (max-width: $xl-media) {
+    padding-inline-end: 24px;
+  }
+  @media (max-width: $lg-media) {
+    padding-inline-end: 16px;
+  }
   &::-webkit-scrollbar {
     width: 6px;
   }

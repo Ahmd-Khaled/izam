@@ -9,6 +9,15 @@
     align-items: flex-start;
     justify-content: space-between;
     gap: 16px;
+    @media (max-width: $xxl-media) {
+      padding: 30px;
+    }
+    @media (max-width: $xl-media) {
+      padding: 20px;
+    }
+    @media (max-width: $sm-media) {
+      padding: 11px 17px;
+    }
     .cardContent {
       display: flex;
       flex-direction: column;

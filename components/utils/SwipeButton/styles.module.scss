@@ -31,3 +31,29 @@
     left: 3px;
   }
 }
+
+@media (max-width: $lg-media) {
+  .swipeButtonOn,
+  .swipeButtonOff {
+    width: 36px;
+    height: 20px;
+    .on,
+    .off {
+      top: 1.65px;
+      width: 16px;
+      height: 16px;
+    }
+    .on {
+      right: 1.65px;
+    }
+    .off {
+      left: 1.65px;
+    }
+  }
+
+  .swipeButtonOff {
+    .off {
+      left: 1.65px;
+    }
+  }
+}

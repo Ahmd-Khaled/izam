@@ -9,7 +9,9 @@
   width: 316px;
   min-height: 332px;
   @include borderRadius(11px);
-
+  @media (max-width: $xxxl-media) {
+    right: 0px;
+  }
   .profInfo {
     height: 118px;
     display: flex;
