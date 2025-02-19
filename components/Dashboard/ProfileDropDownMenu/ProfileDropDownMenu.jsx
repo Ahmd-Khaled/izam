@@ -15,7 +15,7 @@ const ProfileDropDownMenu = () => {
         text2Size="15px"
         iconSize="20px"
       />
-      <ProfileLinks />
+      <ProfileLinks close={console.log("")} />
     </div>
   );
 };

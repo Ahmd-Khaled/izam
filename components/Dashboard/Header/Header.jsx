@@ -59,7 +59,7 @@ const Header = () => {
             <input type="search" placeholder="Search by name, job title, ..." />
           </form>
         </div>
-        <NavLinks isForMob={false} />
+        <NavLinks isForMob={false} close={console.log("")} />
       </div>
       <div className={styles.containerMob}>
         <AvatarMobile />

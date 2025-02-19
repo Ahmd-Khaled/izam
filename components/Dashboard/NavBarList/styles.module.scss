@@ -15,10 +15,16 @@
     background-color: $primary;
     outline: 1px solid $primary;
   }
+  @media (max-width: $sm-media) {
+    padding: 0px 21px;
+  }
   .navList {
     display: flex;
     flex-direction: column;
     gap: 14px;
+    @media (max-width: $sm-media) {
+      gap: 12px;
+    }
     .navItem {
       .navMainLink {
         padding: 19px 30px;
@@ -28,6 +34,9 @@
         align-items: center;
         justify-content: space-between;
         gap: 8px;
+        @media (max-width: $xxxl-media) {
+          padding: 17px 27px;
+        }
         h4 {
           color: $black-40;
           font-weight: 500;
@@ -40,6 +49,30 @@
         }
         svg {
           font-size: 18px;
+        }
+        @media (max-width: $sm-media) {
+          h4 {
+            font-size: 17px;
+            line-height: 23.24px;
+          }
+          svg {
+            font-size: 14px;
+          }
+        }
+      }
+      .subLinkBtn {
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        svg {
+          @include transition(0.2s);
+        }
+        &:hover {
+          svg {
+            color: $primary;
+          }
         }
       }
       .navSubLinks {
@@ -59,6 +92,10 @@
               letter-spacing: 0%;
               @media (max-width: $xxxl-media) {
                 font-size: 18px;
+              }
+              @media (max-width: $sm-media) {
+                font-size: 17px;
+                line-height: 23.24px;
               }
             }
           }

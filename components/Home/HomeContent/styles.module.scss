@@ -91,25 +91,6 @@
         }
       }
     }
-    .mobNavBtn {
-      width: 57px;
-      height: 57px;
-      border: 1px solid $gray-F0;
-      @include borderRadius(3px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: $white;
-      svg {
-        width: 24px;
-        height: 24px;
-        color: $gray-6B;
-      }
-      display: none;
-      @media (max-width: $lg-media) {
-        display: flex;
-      }
-    }
   }
   .jobList {
     margin-top: 26px;

@@ -21,8 +21,8 @@ const ProfileSideMenu = ({ close, isOpen }) => {
             text2Size="14px"
             iconSize="14px"
           />
-          <NavLinks isForMob={true} />
-          <ProfileLinks />
+          <NavLinks isForMob={true} close={close} />
+          <ProfileLinks close={close} />
         </div>
       </div>
     </div>

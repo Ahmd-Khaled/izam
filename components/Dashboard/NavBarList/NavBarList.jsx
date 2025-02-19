@@ -25,26 +25,30 @@ const NavBarList = () => {
       <ul className={styles.navList}>
         {navList?.map((item) => (
           <li key={item?.id} className={styles.navItem}>
-            <Link
-              className={styles.navMainLink}
-              href={
-                item?.title === "Qualifications"
-                  ? "/qualifications"
-                  : item?.target
-              }
-              onClick={() => handleToggleMainLink(item?.id)}
-            >
-              <h4>{item?.title}</h4>
+            <div className={styles.navMainLink}>
+              <Link
+                href={
+                  item?.title === "Qualifications"
+                    ? "/qualifications"
+                    : item?.target
+                }
+              >
+                <h4>{item?.title}</h4>
+              </Link>
+
               {item?.children && item?.children?.length > 0 ? (
-                <>
+                <button
+                  className={styles.subLinkBtn}
+                  onClick={() => handleToggleMainLink(item?.id)}
+                >
                   {isMainLinkOpen && clickedMainLink === item?.id ? (
                     <FaAngleUp />
                   ) : (
                     <FaAngleDown />
                   )}
-                </>
+                </button>
               ) : null}
-            </Link>
+            </div>
             {item?.children &&
             item?.children?.length > 0 &&
             isMainLinkOpen &&

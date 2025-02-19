@@ -2,9 +2,9 @@ import styles from "./styles.module.scss";
 import ContentUI from "@/components/UI/ContentUI/ContentUI";
 import SortingBy from "@/components/utils/SortingBy/SortingBy";
 import SwipeButton from "@/components/utils/SwipeButton/SwipeButton";
-import { FaBars } from "react-icons/fa6";
 import JobCard from "../JobCard/JobCard";
 import Pagination from "@/components/utils/Pagination/Pagination";
+import MobNavBtn from "../MobNavBtn/MobNavBtn";
 
 const sortList = [
   {
@@ -139,9 +139,7 @@ const HomeContent = () => {
                 <SwipeButton />
               </div>
             </div>
-            <button className={styles.mobNavBtn}>
-              <FaBars />
-            </button>
+            <MobNavBtn />
           </div>
           <ul className={styles.jobList}>
             {jobsList?.map((job) => (

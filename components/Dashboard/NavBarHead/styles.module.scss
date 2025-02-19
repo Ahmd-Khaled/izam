@@ -1,0 +1,82 @@
+.navHead {
+  height: 98px;
+  border-bottom: 1px solid #e9e9e9;
+  padding: 34px 32px 34px 42px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  @media (max-width: $sm-media) {
+    height: 74px;
+    padding: 30px 21px;
+    border-bottom-color: transparent;
+  }
+  .navHeadStart {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    svg {
+      display: none;
+      color: $black-16;
+      font-size: 24px;
+      @media (max-width: $sm-media) {
+        display: flex;
+      }
+    }
+    span {
+      color: $black-40;
+      font-weight: 500;
+      font-size: 25px;
+      line-height: 26.22px;
+      letter-spacing: 0%;
+      @media (max-width: $xxxl-media) {
+        font-size: 22px;
+      }
+    }
+  }
+  .navHeadEnd {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    .setBtn {
+      svg {
+        font-size: 28px;
+        @media (max-width: $xxxl-media) {
+          font-size: 24px;
+        }
+      }
+    }
+    .closeBtn,
+    .openBtn {
+      width: 43px;
+      height: 43px;
+      border: 2px solid transparent;
+      @include borderRadius(50%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      svg {
+        font-size: 24px;
+      }
+      @media (max-width: $xxxl-media) {
+        width: 36px;
+        height: 36px;
+        svg {
+          font-size: 20px;
+        }
+      }
+    }
+    .closeBtn {
+      border-color: $red-ED;
+      svg {
+        color: $red-ED;
+      }
+    }
+    .openBtn {
+      border-color: $primary;
+      svg {
+        color: $primary;
+      }
+    }
+  }
+}
