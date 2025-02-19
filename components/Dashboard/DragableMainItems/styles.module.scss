@@ -1,0 +1,10 @@
+.dragableMainItems {
+  background-color: #f2f2f3;
+  @include borderRadius(5px);
+  padding: 15px;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: auto;
+}
