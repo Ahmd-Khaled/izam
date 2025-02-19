@@ -1,3 +1,48 @@
-.avatarMobile {
-  color: $white;
+.avatarMob {
+  position: relative;
+  z-index: 1000;
+  .avBtn {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    @media (max-width: $xxxl-media) {
+      gap: 0px;
+    }
+    .avImage {
+      width: 42px;
+      min-width: 42px;
+      max-width: 42px;
+      height: 42px;
+      min-height: 42px;
+      max-height: 42px;
+      @include borderRadius(50%);
+
+      img {
+        @include borderRadius(50%);
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    .avIcon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      bottom: -3px;
+      right: -2px;
+      width: 20px;
+      height: 20px;
+      @include borderRadius(50%);
+      background-color: $white;
+      svg {
+        font-size: 10px;
+        color: $gray-70;
+      }
+    }
+  }
+  .profDropdown {
+  }
 }

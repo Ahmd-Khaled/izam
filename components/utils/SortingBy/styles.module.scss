@@ -3,6 +3,9 @@
   z-index: 900;
   width: 306px;
   position: relative;
+  @media (max-width: $lg-media) {
+    width: 220px;
+  }
   .srtBtn {
     border: 1px solid transparent;
     @include borderRadius(11px 11px 0px 0px);
@@ -14,11 +17,18 @@
     align-items: center;
     justify-content: space-between;
     gap: 8px;
+    @media (max-width: $lg-media) {
+      padding: 16px;
+      height: 50px;
+    }
     span {
       font-weight: 500;
       font-size: 20px;
       line-height: 26.22px;
       letter-spacing: 0%;
+      @media (max-width: $lg-media) {
+        font-size: 15px;
+      }
     }
     .srtTxt {
       color: $black-40;
@@ -29,11 +39,14 @@
     svg {
       color: $primary;
       font-size: 20px;
+      @media (max-width: $lg-media) {
+        font-size: 15px;
+      }
     }
   }
   .sortMenu {
     position: absolute;
-    top: 66px;
+    top: 50px;
     left: 0px;
     background-color: $white;
     width: 100%;
@@ -49,6 +62,10 @@
       padding: 19px 27px;
       cursor: pointer;
       @include transition(0.2s);
+      @media (max-width: $lg-media) {
+        font-size: 16px;
+        padding: 16px;
+      }
     }
 
     .sortItem {

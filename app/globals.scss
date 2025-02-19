@@ -11,8 +11,9 @@
 body {
   font-size: 1rem;
   font-family: var(--font-dm_Sans);
-  overflow: hidden;
-
+  @media (min-width: $lg-media) {
+    overflow: hidden;
+  }
   &::-webkit-scrollbar {
     width: 6px;
   }

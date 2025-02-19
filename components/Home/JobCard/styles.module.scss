@@ -3,6 +3,10 @@
   width: 100%;
   border: 1px solid $gray-F0;
   @include borderRadius(5px);
+  @include transition(0.3s);
+  &:hover {
+    background-color: $gray-F3F;
+  }
   .cardHead {
     padding: 30px 41px 26px 67px;
     display: flex;
@@ -15,7 +19,7 @@
     @media (max-width: $xl-media) {
       padding: 20px;
     }
-    @media (max-width: $sm-media) {
+    @media (max-width: $md-media) {
       padding: 11px 17px;
     }
     .cardContent {
@@ -30,6 +34,11 @@
           background-color: $white;
           width: 70px;
           height: 70px;
+          @media (max-width: $md-media) {
+            width: 32px;
+
+            height: 32px;
+          }
           img {
             width: 100%;
             height: 100%;
@@ -43,6 +52,10 @@
             font-size: 25px;
             line-height: 37.5px;
             letter-spacing: 0%;
+            @media (max-width: $md-media) {
+              font-size: 14px;
+              line-height: 21px;
+            }
           }
           p {
             color: $primary;
@@ -50,6 +63,10 @@
             font-size: 17px;
             line-height: 24px;
             letter-spacing: 0%;
+            @media (max-width: $md-media) {
+              font-size: 11px;
+              line-height: 11.24px;
+            }
           }
         }
       }
@@ -67,6 +84,16 @@
             font-size: 17px;
             line-height: 27px;
             letter-spacing: 0%;
+            @media (max-width: $md-media) {
+              font-size: 11px;
+              line-height: 12.65px;
+            }
+          }
+          @media (max-width: $md-media) {
+            img {
+              width: 10px;
+              height: 10px;
+            }
           }
         }
       }
@@ -85,6 +112,12 @@
           line-height: 26.22px;
           letter-spacing: 0%;
           text-align: center;
+          @media (max-width: $md-media) {
+            min-height: 17px;
+            padding: 2px 8px;
+            font-size: 9px;
+            line-height: 12.29px;
+          }
         }
       }
     }
@@ -103,6 +136,13 @@
         font-size: 24px;
         color: $gray-C4;
       }
+      @media (max-width: $md-media) {
+        width: 25px;
+        height: 25px;
+        svg {
+          font-size: 13px;
+        }
+      }
       &:hover {
         border-color: $red-ED;
         svg {
@@ -117,6 +157,11 @@
     display: flex;
     align-items: center;
     gap: 64px;
+    @media (max-width: $md-media) {
+      padding: 12px 17px;
+      gap: 32px;
+    }
+
     li {
       color: $gray-70;
       font-weight: 400;
@@ -133,6 +178,19 @@
         background-color: $gray-70;
         width: 10px;
         height: 2px;
+      }
+      @media (max-width: $md-media) {
+        font-size: 10px;
+        line-height: 12.65px;
+        &:not(:last-of-type)::before {
+          content: "";
+          position: absolute;
+          top: 50%;
+          right: -24px;
+          margin: 0px 8px;
+          width: 6px;
+          height: 1px;
+        }
       }
     }
   }
