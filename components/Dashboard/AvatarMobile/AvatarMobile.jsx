@@ -3,6 +3,7 @@ import Image from "next/image";
 import styles from "./styles.module.scss";
 import { useEffect, useRef, useState } from "react";
 import { FaBars } from "react-icons/fa6";
+import ProfileSideMenu from "../ProfileSideMenu/ProfileSideMenu";
 const AvatarMobile = () => {
   const btnRef = useRef();
   const listRef = useRef();
@@ -10,6 +11,10 @@ const AvatarMobile = () => {
   const [isOpen, setIsOpen] = useState(false);
   const openOptionHandler = () => {
     setIsOpen((prev) => !prev);
+  };
+
+  const closeMenuHandler = () => {
+    setIsOpen(false);
   };
 
   useEffect(() => {
@@ -40,11 +45,10 @@ const AvatarMobile = () => {
           <FaBars />
         </div>
       </button>
-      {isOpen ? (
-        <div className={styles.profDropdown} ref={listRef}>
-          <ProfileDropDownMenu />
-        </div>
-      ) : null}
+
+      <div className={styles.profDropdown} ref={listRef}>
+        <ProfileSideMenu close={closeMenuHandler} isOpen={isOpen} />
+      </div>
     </div>
   );
 };

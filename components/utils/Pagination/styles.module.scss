@@ -25,6 +25,17 @@
         color: $gray-70;
         font-size: 18px;
       }
+      @media (max-width: $md-media) {
+        min-width: 26px;
+        height: 26px;
+
+        font-size: 10.42px;
+        line-height: 16.93px;
+
+        svg {
+          font-size: 12px;
+        }
+      }
     }
     .pageItem {
       &:hover {

@@ -120,59 +120,6 @@
         }
       }
     }
-    .navLinks {
-      height: 100%;
-      display: flex;
-      align-items: flex-end;
-      gap: 58px;
-      @media (max-width: $xxxl-media) {
-        gap: 28px;
-      }
-
-      li {
-        display: flex;
-        align-items: center;
-        gap: 58px;
-        @media (max-width: $xxxl-media) {
-          gap: 28px;
-        }
-      }
-      .navLink {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 2px;
-        @include transition(0.2s);
-        opacity: 1;
-        &:hover {
-          opacity: 0.7;
-        }
-        @media (max-width: $xxxl-media) {
-          gap: 0px;
-        }
-        .linkTxt {
-          color: $gray-E6;
-          font-weight: 400;
-          line-height: 27px;
-          letter-spacing: 0%;
-          font-size: 16px;
-          @media (max-width: $xxxl-media) {
-            font-size: 14px;
-          }
-        }
-      }
-
-      .separator {
-        display: block;
-        height: 55px;
-        width: 1px;
-        background-color: $gray-D6;
-        @include borderRadius(2px);
-        @media (max-width: $xxxl-media) {
-          height: 50px;
-        }
-      }
-    }
   }
   .containerMob {
     width: 100%;

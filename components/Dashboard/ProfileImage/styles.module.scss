@@ -1,0 +1,57 @@
+.profileImage {
+  // height: 118px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 17px;
+  // padding: 25px 25px 23px 23px;
+  .profTopStart {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 17px;
+    .profImg {
+      @include borderRadius(50%);
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        @include borderRadius(50%);
+      }
+    }
+    .profTitle {
+      .userName {
+        color: $black-16;
+        font-weight: 500;
+        font-size: 19px;
+        line-height: 28.5px;
+        letter-spacing: 0%;
+      }
+      .userTtl {
+        color: $gray-70;
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 27px;
+        letter-spacing: 0%;
+      }
+    }
+  }
+
+  .goBtn {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    svg {
+      color: $gray-C4;
+      font-size: 20px;
+      @include transition(0.3s);
+    }
+    &:hover {
+      svg {
+        color: $gray-D6;
+      }
+    }
+  }
+}
