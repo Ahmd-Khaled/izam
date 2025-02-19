@@ -5,12 +5,12 @@ import {
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
 
-const DragableMainItems = ({ tasks }) => {
+const DragableMainItems = ({ items }) => {
   return (
     <div className={styles.dragableMainItems}>
-      <SortableContext items={tasks} strategy={verticalListSortingStrategy}>
-        {tasks?.map((task) => (
-          <DragableItem key={task.id} id={task.id} title={task.title} />
+      <SortableContext items={items} strategy={verticalListSortingStrategy}>
+        {items?.map((item) => (
+          <DragableItem key={item.id} item={item} id={item.id} />
         ))}
       </SortableContext>
     </div>

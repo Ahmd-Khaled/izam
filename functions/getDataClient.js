@@ -9,6 +9,7 @@ export const getDataClient = async (url) => {
     },
   });
 
+  console.log("======= res:", res);
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }

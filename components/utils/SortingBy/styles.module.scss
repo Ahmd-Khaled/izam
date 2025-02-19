@@ -52,6 +52,7 @@
     width: 100%;
     @include borderRadius(0px 0px 11px 11px);
     border: 1px solid $gray-D8;
+    overflow: hidden;
     .sortItem,
     .sortItemActive {
       color: $gray-70;

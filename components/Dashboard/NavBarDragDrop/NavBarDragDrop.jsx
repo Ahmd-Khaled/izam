@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./styles.module.scss";
 import DragableMainItems from "../DragableMainItems/DragableMainItems";
 
@@ -13,13 +13,17 @@ import {
 } from "@dnd-kit/core";
 
 import { arrayMove, sortableKeyboardCoordinates } from "@dnd-kit/sortable";
+import useGetNavList from "@/hooks/NavBar/useGetNavList";
 
 const NavBarDragDrop = () => {
-  const [tasks, setTasks] = useState([
-    { id: 1, title: "Add tests to homepage" },
-    { id: 2, title: "Fix styling in about section" },
-    { id: 3, title: "Learn how to center a div" },
-  ]);
+  const [navList] = useGetNavList();
+
+  const [items, setItems] = useState(navList);
+  // const [tasks, setTasks] = useState(navList);
+
+  useEffect(() => {
+    setItems(navList);
+  }, [navList]);
 
   const sensors = useSensors(
     useSensor(PointerSensor),
@@ -28,22 +32,22 @@ const NavBarDragDrop = () => {
     })
   );
 
-  const getTaskPos = (id) => tasks.findIndex((task) => task.id === id);
+  const getTaskPos = (id) => items.findIndex((task) => task.id === id);
 
   const handleDragEnd = (event) => {
     const { active, over } = event;
 
     if (active.id === over.id) return;
 
-    setTasks((tasks) => {
+    setItems((items) => {
       const originalPos = getTaskPos(active.id);
       const newPos = getTaskPos(over.id);
 
-      return arrayMove(tasks, originalPos, newPos);
+      return arrayMove(items, originalPos, newPos);
     });
   };
 
-  console.log("----------------- Tasks: ", tasks);
+  console.log("----------------- Items: ", items);
 
   return (
     <div className={styles.navBarDragDrop}>
@@ -52,7 +56,7 @@ const NavBarDragDrop = () => {
         collisionDetection={closestCorners}
         onDragEnd={handleDragEnd}
       >
-        <DragableMainItems tasks={tasks} />
+        <DragableMainItems items={items} />
       </DndContext>
     </div>
   );

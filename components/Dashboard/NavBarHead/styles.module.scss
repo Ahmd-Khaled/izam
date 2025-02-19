@@ -1,7 +1,8 @@
 .navHead {
   height: 98px;
-  border-bottom: 1px solid #e9e9e9;
-  padding: 34px 32px 34px 42px;
+  border-bottom: 1px solid $gray-E9;
+  // padding: 34px 32px 34px 42px;
+  padding: 28px 38px 27px 42px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -23,7 +24,7 @@
       justify-content: flex-start;
       display: none;
       @include transition(0.2s);
-      @media (max-width: $sm-media) {
+      @media (max-width: $lg-media) {
         display: flex;
       }
       svg {

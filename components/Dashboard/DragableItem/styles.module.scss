@@ -1,12 +1,86 @@
 .dragableItem {
-  background-color: white;
-  border-radius: 5px;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   width: 100%;
-  padding: 20px;
+  touch-action: none;
+  // -------------------------
+  @include borderRadius(4px);
+  background-color: $gray-F7;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  gap: 20px;
-  touch-action: none;
+  justify-content: space-between;
+  gap: 8px;
+
+  .dragItemTitle,
+  .dragItemTitleDimt {
+    flex: auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 18px 0px 18px 30px;
+    @media (max-width: $xxxl-media) {
+      padding: 22px 0px 22px 26px;
+    }
+
+    h4 {
+      color: $black-40;
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 26.22px;
+      letter-spacing: 0%;
+      @media (max-width: $xxxl-media) {
+        font-size: 17px;
+        line-height: 26.22px;
+      }
+    }
+    svg {
+      color: $black-40;
+      font-size: 32px;
+      @media (max-width: $xxxl-media) {
+        font-size: 24px;
+      }
+    }
+  }
+  .dragItemTitleDimt {
+    h4,
+    svg {
+      color: $gray-CD;
+    }
+  }
+  .dragItemIcons {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-inline-end: 30px;
+    @media (max-width: $xxxl-media) {
+      padding-inline-end: 26px;
+      gap: 8px;
+    }
+    .editBtn,
+    .viewBtn {
+      padding-top: 18px;
+      padding-bottom: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      svg {
+        font-size: 24px;
+        color: $gray-84;
+        @include transition(0.3s);
+
+        @media (max-width: $xxxl-media) {
+          font-size: 18px;
+        }
+      }
+      &:hover {
+        svg {
+          color: $black-40;
+        }
+      }
+    }
+    .editBtn {
+    }
+    .viewBtn {
+    }
+  }
 }

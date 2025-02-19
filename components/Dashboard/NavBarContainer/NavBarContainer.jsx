@@ -4,6 +4,7 @@ import { useState } from "react";
 import NavBarDragDrop from "../NavBarDragDrop/NavBarDragDrop";
 import NavBarHead from "../NavBarHead/NavBarHead";
 import NavBarList from "../NavBarList/NavBarList";
+import LongPressWrapper from "@/components/utils/LongPressButton/LongPressButton";
 
 const NavBarContainer = ({ close }) => {
   const [isDaragDropOpen, setIsDaragDropOpen] = useState(false);
@@ -22,11 +23,13 @@ const NavBarContainer = ({ close }) => {
 
   return (
     <div className={styles.navContainer}>
-      <NavBarHead
-        stepBackHandler={stepBackHandler}
-        isDaragDropOpen={isDaragDropOpen}
-        handleToggleDragDropList={handleToggleDragDropList}
-      />
+      <LongPressWrapper onLongPress={handleToggleDragDropList}>
+        <NavBarHead
+          stepBackHandler={stepBackHandler}
+          isDaragDropOpen={isDaragDropOpen}
+          handleToggleDragDropList={handleToggleDragDropList}
+        />
+      </LongPressWrapper>
       {isDaragDropOpen ? <NavBarDragDrop /> : <NavBarList />}
     </div>
   );

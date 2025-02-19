@@ -32,14 +32,16 @@ const NavBarHead = ({
               <FaCheck />
             </button>
           </>
-        ) : (
-          <button onClick={handleToggleDragDropList} className={styles.setBtn}>
-            <SlSettings />
-          </button>
-        )}
+        ) : null}
       </div>
     </div>
   );
 };
 
 export default NavBarHead;
+
+{
+  /* <button onClick={handleToggleDragDropList} className={styles.setBtn}>
+<SlSettings />
+</button> */
+}
