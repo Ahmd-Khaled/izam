@@ -1,12 +1,11 @@
 "use client";
-import useGetNavList from "@/hooks/NavBar/useGetNavList";
 import styles from "./styles.module.scss";
 import Link from "next/link";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa6";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 
-const NavBarList = () => {
+const NavBarList = ({ navList }) => {
   const [isMainLinkOpen, setIsMainLinkOpen] = useState(false);
   const [clickedMainLink, setClickedMainLink] = useState(null);
   const pathname = usePathname();
@@ -18,7 +17,6 @@ const NavBarList = () => {
     setClickedMainLink(id);
   };
 
-  const [navList] = useGetNavList();
   // console.log("------------------navList:", navList);
   return (
     <div className={styles.navBarList}>

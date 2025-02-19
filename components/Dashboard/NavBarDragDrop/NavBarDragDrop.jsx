@@ -13,11 +13,8 @@ import {
 } from "@dnd-kit/core";
 
 import { arrayMove, sortableKeyboardCoordinates } from "@dnd-kit/sortable";
-import useGetNavList from "@/hooks/NavBar/useGetNavList";
 
-const NavBarDragDrop = () => {
-  const [navList] = useGetNavList();
-
+const NavBarDragDrop = ({ navList }) => {
   const [items, setItems] = useState(navList);
   // const [tasks, setTasks] = useState(navList);
 
