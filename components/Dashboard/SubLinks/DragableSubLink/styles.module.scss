@@ -9,25 +9,58 @@
       flex: auto;
       display: flex;
       align-items: center;
-      gap: 6px;
-      padding: 11px 0px 11px 53px;
-      svg {
-        color: $black-40;
-      }
-      h3 {
-        color: $black-40;
-        font-weight: 400;
-        font-size: 22px;
-        line-height: 26.22px;
-        letter-spacing: 0%;
 
-        @media (max-width: $xxxl-media) {
-          font-size: 16px;
+      // padding: 11px 0px 11px 53px;
+
+      .dragIcon {
+        padding: 11px 6px 11px 53px;
+        @include transition(0.3s);
+        &:hover {
+          background-color: $gray-FD;
         }
-        @media (max-width: $sm-media) {
-          font-weight: 500;
-          font-size: 17px;
+        svg {
+          font-size: 18px;
+          color: $black-40;
+        }
+      }
+      .inputBox {
+        width: 100%;
+        padding: 11px 0px 11px;
+        input {
+          width: 90%;
+          color: $black-40;
+          font-weight: 400;
+          font-size: 22px;
           line-height: 26.22px;
+          letter-spacing: 0%;
+          @media (max-width: $xxxl-media) {
+            font-size: 16px;
+          }
+          @media (max-width: $sm-media) {
+            font-weight: 500;
+            font-size: 17px;
+            line-height: 26.22px;
+          }
+          &::placeholder {
+            color: $black-40;
+            font-weight: 400;
+            font-size: 22px;
+            line-height: 26.22px;
+            letter-spacing: 0%;
+            @media (max-width: $xxxl-media) {
+              font-size: 16px;
+            }
+            @media (max-width: $sm-media) {
+              font-weight: 500;
+              font-size: 17px;
+              line-height: 26.22px;
+            }
+          }
+        }
+        .editableInput {
+          background-color: $gray-E6;
+        }
+        .disabledInput {
         }
       }
     }

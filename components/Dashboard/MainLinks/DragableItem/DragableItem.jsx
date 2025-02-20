@@ -8,9 +8,16 @@ import { ImEye, ImEyeBlocked } from "react-icons/im";
 import { useState } from "react";
 import Link from "next/link";
 import DragableSubLinksArea from "../../SubLinks/DragableSubLinksArea/DragableSubLinksArea";
+import { useDispatch, useSelector } from "react-redux";
+import { updateTitle } from "@/redux/slices/listSlice";
+import { updateTitleById } from "@/hooks/functions/updateTitleById";
 
 const DragableItem = ({ id, item }) => {
+  const dispatch = useDispatch();
+  const { newList, items, status, error } = useSelector((state) => state.list);
+
   const [isEditable, setIsEditable] = useState(true);
+  const [editTitle, setEditTitle] = useState(false);
 
   const [isMainLinkOpen, setIsMainLinkOpen] = useState(true);
   const [clickedMainLink, setClickedMainLink] = useState(null);
@@ -20,9 +27,21 @@ const DragableItem = ({ id, item }) => {
     setClickedMainLink(id);
   };
 
-  const closeSubLinksHandler = () => {
-    setIsMainLinkOpen(false);
+  const enableEdite = () => {
+    setIsEditable(true);
+    setEditTitle(true);
   };
+
+  const toggleEdite = () => {
+    setEditTitle(false);
+    setIsEditable((prev) => !prev);
+  };
+
+  const handleUpdateTitle = (e, id) => {
+    const updatedList = updateTitleById(newList, id, e.target.value);
+    dispatch(updateTitle(updatedList));
+  };
+
   // -------------------------------
   const { attributes, listeners, setNodeRef, transform, transition } =
     useSortable({ id });
@@ -30,11 +49,6 @@ const DragableItem = ({ id, item }) => {
   const style = {
     transition,
     transform: CSS.Transform.toString(transform),
-  };
-
-  const toggleEdite = (event) => {
-    // event.stopPropagation();
-    setIsEditable((prev) => !prev);
   };
 
   return (
@@ -47,28 +61,32 @@ const DragableItem = ({ id, item }) => {
     >
       <div className={styles.dragableItemWrap}>
         <div
-          {...(isEditable && listeners)}
+          onClick={() => handleToggleMainLink(item?.id)}
           className={
             isEditable ? styles.dragItemTitle : styles.dragItemTitleDimt
           }
         >
-          <RxDragHandleDots2 />
-          <h4>{item.title}</h4>
+          <div className={styles.dragIcon} {...(isEditable && listeners)}>
+            <RxDragHandleDots2 />
+          </div>
+          {/* <h4>{item.title}</h4> */}
+          <div className={styles.inputBox}>
+            <input
+              onChange={(e) => handleUpdateTitle(e, item.id)}
+              readOnly={!editTitle}
+              type="text"
+              placeholder={item.title}
+              className={
+                editTitle ? styles.editableInput : styles.disabledInput
+              }
+            />
+          </div>
         </div>
         <div className={styles.dragItemIcons}>
-          <button
-            onClick={() => handleToggleMainLink(item?.id)}
-            className={styles.editBtn}
-          >
+          <button onClick={enableEdite} className={styles.editBtn}>
             <MdOutlineModeEditOutline />
           </button>
-          <button
-            onClick={() => {
-              toggleEdite();
-              closeSubLinksHandler();
-            }}
-            className={styles.viewBtn}
-          >
+          <button onClick={toggleEdite} className={styles.viewBtn}>
             {isEditable ? <ImEye /> : <ImEyeBlocked />}
           </button>
         </div>

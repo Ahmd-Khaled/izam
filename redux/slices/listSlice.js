@@ -44,6 +44,10 @@ const listSlice = createSlice({
     updateList: (state, action) => {
       state.newList = action.payload; // Update the list with the new items
     },
+    updateTitle: (state, action) => {
+      state.newList = action.payload; // Update the list with the new items
+      console.log("-------------action.payload:", action.payload);
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -87,6 +91,6 @@ const listSlice = createSlice({
   },
 });
 
-export const { updateList } = listSlice.actions;
+export const { updateList, updateTitle } = listSlice.actions;
 
 export default listSlice.reducer;

@@ -17,10 +17,51 @@
     height: 100%;
     display: flex;
     align-items: center;
-    gap: 6px;
-    padding: 18px 0px 18px 30px;
-    @media (max-width: $xxxl-media) {
-      padding: 22px 0px 22px 26px;
+    gap: 0px;
+
+    .dragIcon {
+      padding: 18px 6px 18px 30px;
+      @include transition(0.3s);
+      &:hover {
+        background-color: $gray-F0;
+      }
+      @media (max-width: $xxxl-media) {
+        padding: 22px 6px 22px 26px;
+      }
+      svg {
+        color: $black-40;
+        font-size: 32px;
+        @media (max-width: $xxxl-media) {
+          font-size: 24px;
+        }
+      }
+    }
+    .inputBox {
+      padding: 18px 0px;
+      @media (max-width: $xxxl-media) {
+        padding: 22px 0px;
+      }
+      width: 100%;
+      input {
+        width: 90%;
+        color: $black-40;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 22px;
+        letter-spacing: 0%;
+        &::placeholder {
+          color: $black-40;
+          font-weight: 500;
+          font-size: 18px;
+          line-height: 26.22px;
+          letter-spacing: 0%;
+        }
+      }
+      .editableInput {
+        background-color: $gray-E6;
+      }
+      .disabledInput {
+      }
     }
 
     h4 {
@@ -34,18 +75,19 @@
         line-height: 26.22px;
       }
     }
-    svg {
-      color: $black-40;
-      font-size: 32px;
-      @media (max-width: $xxxl-media) {
-        font-size: 24px;
-      }
-    }
   }
   .dragItemTitleDimt {
-    h4,
-    svg {
-      color: $gray-CD;
+    .dragIcon {
+      svg {
+        color: $gray-CD;
+      }
+    }
+    .inputBox {
+      input {
+        &::placeholder {
+          color: $gray-CD;
+        }
+      }
     }
   }
   .dragItemIcons {
