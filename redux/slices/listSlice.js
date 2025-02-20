@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { API_URL } from "../API_URL";
 
-// Async Thunk for GET request (Get Nav List).
+// Async Thunk for GET request (Get Nav List)
 export const fetchListItems = createAsyncThunk(
   "list/fetchListItems",
   async () => {
@@ -11,7 +11,7 @@ export const fetchListItems = createAsyncThunk(
   }
 );
 
-// Async Thunk for POST request (Post Nav List).
+// Async Thunk for POST request (Post Nav List)
 export const addListItem = createAsyncThunk(
   "list/addListItem",
   async (data) => {
@@ -20,13 +20,29 @@ export const addListItem = createAsyncThunk(
   }
 );
 
+// Async Thunk for POST request (Track List Item)
+export const trackListItem = createAsyncThunk(
+  "list/trackListItem",
+  async (data) => {
+    console.log("==== ---trackListItem--- ==== data", data);
+    const response = await axios.post(`${API_URL}/track`, data);
+    return response.data;
+  }
+);
+
 const listSlice = createSlice({
   name: "list",
-  initialState: { items: [], newList: [], status: "idle", error: null },
+  initialState: {
+    items: [],
+    newList: [],
+    from: 0,
+    to: 0,
+    status: "idle",
+    error: null,
+  },
   reducers: {
     updateList: (state, action) => {
       state.newList = action.payload; // Update the list with the new items
-      console.log("- - -    --    --  state.newList:", state.newList);
     },
   },
   extraReducers: (builder) => {
@@ -51,6 +67,20 @@ const listSlice = createSlice({
         state.items.push(action.payload);
       })
       .addCase(addListItem.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.error.message;
+      })
+      // Track list item
+      .addCase(trackListItem.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(trackListItem.fulfilled, (state, action) => {
+        state.status = "succeeded";
+        state.from = action.meta.arg.from;
+        state.to = action.meta.arg.to;
+        // console.log("=========trackListItem Fulfilled======", action.meta.arg);
+      })
+      .addCase(trackListItem.rejected, (state, action) => {
         state.status = "failed";
         state.error = action.error.message;
       });

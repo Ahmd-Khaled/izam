@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import styles from "./styles.module.scss";
 import DragableMainItems from "../DragableMainItems/DragableMainItems";
 
@@ -14,9 +14,13 @@ import {
 
 import { arrayMove, sortableKeyboardCoordinates } from "@dnd-kit/sortable";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchListItems, updateList } from "@/redux/slices/listSlice";
+import {
+  fetchListItems,
+  trackListItem,
+  updateList,
+} from "@/redux/slices/listSlice";
 
-const DragableMainArea = ({ handleSetList, close }) => {
+const DragableMainArea = ({ close }) => {
   const dispatch = useDispatch();
   const { newList, items, status, error } = useSelector((state) => state.list);
 
@@ -40,6 +44,10 @@ const DragableMainArea = ({ handleSetList, close }) => {
     if (active.id === over.id) return;
     const originalPos = getTaskPos(active.id);
     const newPos = getTaskPos(over.id);
+
+    // ------- Track the list item -----------
+    const track = { id: active.id, from: originalPos, to: newPos };
+    dispatch(trackListItem(track));
 
     // -------- Update list----
     dispatch(updateList(arrayMove(newList, originalPos, newPos)));

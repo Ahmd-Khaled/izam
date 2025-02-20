@@ -7,22 +7,25 @@ import Loader from "@/components/utils/Loader/Loader";
 
 import { useDispatch, useSelector } from "react-redux";
 import { addListItem } from "@/redux/slices/listSlice";
+import Tracking from "@/components/utils/Tracking/Tracking";
 
 const NavBarHead = ({
   isDaragDropOpen,
   handleToggleDragDropList,
   stepBackHandler,
-  handleSubmitNewList,
-  isLoading,
 }) => {
-  const { newList, items, status, error } = useSelector((state) => state.list);
+  const { from, to, newList, items, status, error } = useSelector(
+    (state) => state.list
+  );
+
+  // console.log("----------------- FROM:", from);
+  // console.log("----------------- TO:", to);
   const dispatch = useDispatch();
 
   const submit = () => {
     dispatch(addListItem(newList));
   };
 
-  console.log("*********** ******* Status:", status);
   return (
     <div className={styles.navHead}>
       <div className={styles.navHeadStart}>
@@ -30,6 +33,7 @@ const NavBarHead = ({
           <FaArrowLeft />
         </button>
         <span>Menu</span>
+        <Tracking from={from} to={to} />
       </div>
       <div className={styles.navHeadEnd}>
         {isDaragDropOpen ? (
@@ -41,7 +45,7 @@ const NavBarHead = ({
             >
               <IoClose />
             </button>
-            <button onClick={submit} className={styles.openBtn}>
+            <button onClick={submit} className={styles.submitBtn}>
               <FaCheck />
             </button>
           </>

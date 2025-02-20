@@ -62,7 +62,7 @@
       }
     }
     .closeBtn,
-    .openBtn {
+    .submitBtn {
       width: 43px;
       height: 43px;
       border: 2px solid transparent;
@@ -90,7 +90,7 @@
         display: none;
       }
     }
-    .openBtn {
+    .submitBtn {
       border-color: $primary;
       @include transition(0.3s);
       svg {

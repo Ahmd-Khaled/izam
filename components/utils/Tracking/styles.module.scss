@@ -1,0 +1,20 @@
+.trackingContainer {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.icon {
+  font-size: 28px;
+  color: $gray-84;
+  animation: moveAnimation 0.5s ease-in-out infinite alternate;
+}
+@keyframes moveAnimation {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(5px);
+  }
+}
