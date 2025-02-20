@@ -1,6 +1,6 @@
 import Header from "@/components/Dashboard/Header/Header";
 import styles from "./styles.module.scss";
-import NavBar from "@/components/Dashboard/NavBar/NavBar";
+import NavBar from "@/components/Dashboard/Nav/NavBar/NavBar";
 
 const DashboardLayout = ({ children }) => {
   return (

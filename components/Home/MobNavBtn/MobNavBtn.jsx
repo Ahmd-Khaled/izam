@@ -1,5 +1,5 @@
 "use client";
-import NavBarSideMenu from "@/components/Dashboard/NavBarSideMenu/NavBarSideMenu";
+import NavBarSideMenu from "@/components/Dashboard/Nav/NavBarSideMenu/NavBarSideMenu";
 import styles from "./styles.module.scss";
 import { FaBars } from "react-icons/fa6";
 import { useState } from "react";

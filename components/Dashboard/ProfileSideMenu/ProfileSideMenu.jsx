@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styles from "./styles.module.scss";
 import ProfileImage from "../ProfileImage/ProfileImage";
-import NavLinks from "../NavLinks/NavLinks";
+import NavLinks from "../Nav/NavLinks/NavLinks";
 import ProfileLinks from "../ProfileLinks/ProfileLinks";
 
 const ProfileSideMenu = ({ close, isOpen }) => {

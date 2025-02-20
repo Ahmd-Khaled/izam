@@ -7,7 +7,8 @@ import { MdOutlineModeEditOutline } from "react-icons/md";
 import { ImEye, ImEyeBlocked } from "react-icons/im";
 import { useState } from "react";
 import Link from "next/link";
-import DragableSubLinksArea from "../SubLinks/DragableSubLinksArea/DragableSubLinksArea";
+import DragableSubLinksArea from "../../SubLinks/DragableSubLinksArea/DragableSubLinksArea";
+
 const DragableItem = ({ id, item }) => {
   const [isEditable, setIsEditable] = useState(true);
 
@@ -41,11 +42,11 @@ const DragableItem = ({ id, item }) => {
       ref={setNodeRef}
       style={style}
       {...attributes}
+      // {...listeners}
       className={styles.dragableItem}
     >
       <div className={styles.dragableItemWrap}>
         <div
-          // {...listeners}
           {...(isEditable && listeners)}
           className={
             isEditable ? styles.dragItemTitle : styles.dragItemTitleDimt

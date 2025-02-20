@@ -2,12 +2,21 @@
 import styles from "./styles.module.scss";
 import Link from "next/link";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa6";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import LongPressWrapper from "@/components/utils/LongPressButton/LongPressButton";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchListItems } from "@/redux/slices/listSlice";
 
-const NavBarList = ({ navList, openEditMode }) => {
+const NavBarList = ({ openEditMode }) => {
   const [isMainLinkOpen, setIsMainLinkOpen] = useState(false);
   const [clickedMainLink, setClickedMainLink] = useState(null);
+
+  const dispatch = useDispatch();
+  const { newList, items, status, error } = useSelector((state) => state.list);
+
+  useEffect(() => {
+    dispatch(fetchListItems());
+  }, [dispatch]);
 
   const handleToggleMainLink = (id) => {
     setIsMainLinkOpen((prev) => !prev);
@@ -18,14 +27,16 @@ const NavBarList = ({ navList, openEditMode }) => {
     <div className={styles.navBarList}>
       <LongPressWrapper onLongPress={openEditMode}>
         <ul className={styles.navList}>
-          {navList?.map((item) => (
-            <li key={item?.id} className={styles.navItem}>
+          {items?.map((item, index) => (
+            <li key={index} className={styles.navItem}>
               <div className={styles.navMainLink}>
                 <Link
                   href={
                     item?.title === "Qualifications"
                       ? "/qualifications"
                       : item?.target
+                      ? item?.target
+                      : "/"
                   }
                 >
                   <h4>{item?.title}</h4>

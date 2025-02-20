@@ -92,8 +92,16 @@
     }
     .openBtn {
       border-color: $primary;
+      @include transition(0.3s);
       svg {
         color: $primary;
+        @include transition(0.3s);
+      }
+      &:hover {
+        background-color: $primary;
+        svg {
+          color: $white;
+        }
       }
     }
   }

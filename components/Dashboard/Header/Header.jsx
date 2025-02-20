@@ -3,7 +3,7 @@ import styles from "./styles.module.scss";
 import Image from "next/image";
 import { FiSearch } from "react-icons/fi";
 import AvatarMobile from "../AvatarMobile/AvatarMobile";
-import NavLinks from "../NavLinks/NavLinks";
+import NavLinks from "../Nav/NavLinks/NavLinks";
 
 export const navLinksList = [
   {

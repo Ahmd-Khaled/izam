@@ -13,14 +13,17 @@ import {
 } from "@dnd-kit/core";
 
 import { arrayMove, sortableKeyboardCoordinates } from "@dnd-kit/sortable";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchListItems, updateList } from "@/redux/slices/listSlice";
 
-const NavBarDragDrop = ({ navList, close }) => {
-  const [items, setItems] = useState(navList);
-  // const [tasks, setTasks] = useState(navList);
+const DragableMainArea = ({ handleSetList, close }) => {
+  const dispatch = useDispatch();
+  const { newList, items, status, error } = useSelector((state) => state.list);
 
   useEffect(() => {
-    setItems(navList);
-  }, [navList]);
+    dispatch(fetchListItems());
+    dispatch(updateList(items));
+  }, [dispatch]);
 
   const sensors = useSensors(
     useSensor(PointerSensor),
@@ -29,22 +32,18 @@ const NavBarDragDrop = ({ navList, close }) => {
     })
   );
 
-  const getTaskPos = (id) => items.findIndex((elem) => elem.id === id);
+  const getTaskPos = (id) => newList.findIndex((elem) => elem.id === id);
 
   const handleDragEnd = (event) => {
     const { active, over } = event;
 
     if (active.id === over.id) return;
+    const originalPos = getTaskPos(active.id);
+    const newPos = getTaskPos(over.id);
 
-    setItems((items) => {
-      const originalPos = getTaskPos(active.id);
-      const newPos = getTaskPos(over.id);
-
-      return arrayMove(items, originalPos, newPos);
-    });
+    // -------- Update list----
+    dispatch(updateList(arrayMove(newList, originalPos, newPos)));
   };
-
-  console.log("----------------- Items: ", items);
 
   return (
     <div className={styles.navBarDragDrop}>
@@ -53,7 +52,7 @@ const NavBarDragDrop = ({ navList, close }) => {
         collisionDetection={closestCorners}
         onDragEnd={handleDragEnd}
       >
-        <DragableMainItems items={items} />
+        <DragableMainItems />
       </DndContext>
       <div className={styles.cancelBtn}>
         <button onClick={close}>Cancel</button>
@@ -62,4 +61,4 @@ const NavBarDragDrop = ({ navList, close }) => {
   );
 };
 
-export default NavBarDragDrop;
+export default DragableMainArea;

@@ -1,15 +1,24 @@
 "use client";
 import styles from "./styles.module.scss";
-import { useState } from "react";
-import NavBarDragDrop from "../NavBarDragDrop/NavBarDragDrop";
+import { useEffect, useState } from "react";
 import NavBarHead from "../NavBarHead/NavBarHead";
 import NavBarList from "../NavBarList/NavBarList";
-import useGetNavList from "@/hooks/NavBar/useGetNavList";
+import DragableMainArea from "../../MainLinks/DragableMainArea/DragableMainArea";
+import useAddNavList from "@/hooks/NavBar/useAddNavList";
 
 const NavBarContainer = ({ close }) => {
   const [isDaragDropOpen, setIsDaragDropOpen] = useState(false);
 
-  const [navList] = useGetNavList();
+  const [submitNewList, isLoading] = useAddNavList();
+
+  const handleSetList = (list) => {
+    // setItems(list);
+    // close();
+  };
+
+  const handleSubmitNewList = () => {
+    // submitNewList(items);
+  };
 
   const handleToggleDragDropList = () => {
     setIsDaragDropOpen((prev) => !prev);
@@ -29,15 +38,17 @@ const NavBarContainer = ({ close }) => {
         stepBackHandler={stepBackHandler}
         isDaragDropOpen={isDaragDropOpen}
         handleToggleDragDropList={handleToggleDragDropList}
+        handleSubmitNewList={handleSubmitNewList}
+        isLoading={isLoading}
       />
       <div className={styles.navListsWraper}>
         {isDaragDropOpen ? (
-          <NavBarDragDrop navList={navList} close={handleToggleDragDropList} />
-        ) : (
-          <NavBarList
-            navList={navList}
-            openEditMode={handleToggleDragDropList}
+          <DragableMainArea
+            handleSetList={handleSetList}
+            close={handleToggleDragDropList}
           />
+        ) : (
+          <NavBarList openEditMode={handleToggleDragDropList} />
         )}
       </div>
     </div>

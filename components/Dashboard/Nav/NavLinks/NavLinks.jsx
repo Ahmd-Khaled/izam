@@ -1,15 +1,19 @@
 import Image from "next/image";
 import styles from "./styles.module.scss";
 import Link from "next/link";
-import { navLinksList } from "../Header/Header";
-import Avatar from "../Avatar/Avatar";
+import { navLinksList } from "../../Header/Header";
+import Avatar from "../../Avatar/Avatar";
 
 const NavLinks = ({ isForMob, close }) => {
   return (
     <ul className={isForMob ? styles.navLinksMob : styles.navLinks}>
       {navLinksList.map((navItem) => (
         <li key={navItem.id}>
-          <Link onClick={close} href={navItem.link} className={styles.navLink}>
+          <Link
+            onClick={close}
+            href={navItem.link ? navItem.link : "/"}
+            className={styles.navLink}
+          >
             {isForMob ? (
               <Image src={navItem.imageMob} alt="ic" width={22} height={22} />
             ) : (

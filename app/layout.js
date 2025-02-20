@@ -1,5 +1,6 @@
 import { DM_Sans } from "next/font/google";
 import "./globals.scss";
+import Providers from "./providers";
 
 const dm_Sans = DM_Sans({
   subsets: ["latin"],
@@ -17,7 +18,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${dm_Sans.variable} antialiased`}>
-        <main>{children}</main>
+        <main>
+          <Providers>{children}</Providers>
+        </main>
       </body>
     </html>
   );

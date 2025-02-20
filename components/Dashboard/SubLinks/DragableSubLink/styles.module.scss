@@ -1,18 +1,62 @@
 .navSubItem {
   .navSubLink {
-    h3 {
-      padding: 13px 0px;
-      color: $black-40;
-      font-weight: 500;
-      font-size: 22px;
-      line-height: 26.22px;
-      letter-spacing: 0%;
-      @media (max-width: $xxxl-media) {
-        font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    .subLinkTtl,
+    .subLinkTtlDimt {
+      flex: auto;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 11px 0px 11px 53px;
+      svg {
+        color: $black-40;
       }
-      @media (max-width: $sm-media) {
-        font-size: 17px;
-        line-height: 23.24px;
+      h3 {
+        color: $black-40;
+        font-weight: 400;
+        font-size: 22px;
+        line-height: 26.22px;
+        letter-spacing: 0%;
+
+        @media (max-width: $xxxl-media) {
+          font-size: 16px;
+        }
+        @media (max-width: $sm-media) {
+          font-weight: 500;
+          font-size: 17px;
+          line-height: 26.22px;
+        }
+      }
+    }
+    .subLinkTtlDimt {
+      h3,
+      svg {
+        color: $gray-CD;
+      }
+    }
+    .subLinkBtns {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 11px 30px 11px 0px;
+      button {
+        svg {
+          font-size: 24px;
+          color: $gray-84;
+          @include transition(0.3s);
+
+          @media (max-width: $xxxl-media) {
+            font-size: 18px;
+          }
+        }
+        &:hover {
+          svg {
+            color: $black-40;
+          }
+        }
       }
     }
   }
