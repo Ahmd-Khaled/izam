@@ -33,11 +33,13 @@ const NavBarContainer = ({ close }) => {
           handleToggleDragDropList={handleToggleDragDropList}
         />
       </LongPressWrapper>
-      {isDaragDropOpen ? (
-        <NavBarDragDrop navList={navList} />
-      ) : (
-        <NavBarList navList={navList} />
-      )}
+      <div className={styles.navListsWraper}>
+        {isDaragDropOpen ? (
+          <NavBarDragDrop navList={navList} close={handleToggleDragDropList} />
+        ) : (
+          <NavBarList navList={navList} />
+        )}
+      </div>
     </div>
   );
 };

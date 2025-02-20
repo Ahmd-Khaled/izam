@@ -1,13 +1,15 @@
 .dragableItem {
-  width: 100%;
   touch-action: none;
-  // -------------------------
-  @include borderRadius(4px);
-  background-color: $gray-F7;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
+
+  .dragableItemWrap {
+    width: 100%;
+    @include borderRadius(4px);
+    background-color: $gray-F7;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+  }
 
   .dragItemTitle,
   .dragItemTitleDimt {

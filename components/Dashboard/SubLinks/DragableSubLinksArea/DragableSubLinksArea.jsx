@@ -1,7 +1,7 @@
 "use client";
-import { useEffect, useState } from "react";
 import styles from "./styles.module.scss";
-import DragableMainItems from "../DragableMainItems/DragableMainItems";
+import DragableSubLinks from "../DragableSubLinks/DragableSubLinks";
+import { useEffect, useState } from "react";
 
 import {
   DndContext,
@@ -14,13 +14,12 @@ import {
 
 import { arrayMove, sortableKeyboardCoordinates } from "@dnd-kit/sortable";
 
-const NavBarDragDrop = ({ navList, close }) => {
-  const [items, setItems] = useState(navList);
-  // const [tasks, setTasks] = useState(navList);
+const DragableSubLinksArea = ({ childrens }) => {
+  const [subLinks, setSubLinks] = useState(childrens);
 
   useEffect(() => {
-    setItems(navList);
-  }, [navList]);
+    setSubLinks(childrens);
+  }, [childrens]);
 
   const sensors = useSensors(
     useSensor(PointerSensor),
@@ -29,37 +28,34 @@ const NavBarDragDrop = ({ navList, close }) => {
     })
   );
 
-  const getTaskPos = (id) => items.findIndex((elem) => elem.id === id);
+  const getTaskPos = (id) => subLinks.findIndex((elem) => elem.id === id);
 
   const handleDragEnd = (event) => {
     const { active, over } = event;
 
     if (active.id === over.id) return;
 
-    setItems((items) => {
+    setSubLinks((subLinks) => {
       const originalPos = getTaskPos(active.id);
       const newPos = getTaskPos(over.id);
 
-      return arrayMove(items, originalPos, newPos);
+      return arrayMove(subLinks, originalPos, newPos);
     });
   };
 
-  console.log("----------------- Items: ", items);
+  console.log("----------------- subLinks: ", subLinks);
 
   return (
-    <div className={styles.navBarDragDrop}>
+    <div className={styles.dragableSubLinksArea}>
       <DndContext
         sensors={sensors}
         collisionDetection={closestCorners}
         onDragEnd={handleDragEnd}
       >
-        <DragableMainItems items={items} />
+        <DragableSubLinks subLinks={subLinks} />
       </DndContext>
-      <div className={styles.cancelBtn}>
-        <button onClick={close}>Cancel</button>
-      </div>
     </div>
   );
 };
 
-export default NavBarDragDrop;
+export default DragableSubLinksArea;

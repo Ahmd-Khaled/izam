@@ -3,21 +3,16 @@ import styles from "./styles.module.scss";
 import Link from "next/link";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa6";
 import { useState } from "react";
-import { usePathname } from "next/navigation";
 
 const NavBarList = ({ navList }) => {
   const [isMainLinkOpen, setIsMainLinkOpen] = useState(false);
   const [clickedMainLink, setClickedMainLink] = useState(null);
-  const pathname = usePathname();
-
-  // console.log("----------------------pathname:", pathname);
 
   const handleToggleMainLink = (id) => {
     setIsMainLinkOpen((prev) => !prev);
     setClickedMainLink(id);
   };
 
-  // console.log("------------------navList:", navList);
   return (
     <div className={styles.navBarList}>
       <ul className={styles.navList}>

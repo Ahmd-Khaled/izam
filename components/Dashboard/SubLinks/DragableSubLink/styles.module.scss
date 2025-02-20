@@ -1,0 +1,19 @@
+.navSubItem {
+  .navSubLink {
+    h3 {
+      padding: 13px 0px;
+      color: $black-40;
+      font-weight: 500;
+      font-size: 22px;
+      line-height: 26.22px;
+      letter-spacing: 0%;
+      @media (max-width: $xxxl-media) {
+        font-size: 18px;
+      }
+      @media (max-width: $sm-media) {
+        font-size: 17px;
+        line-height: 23.24px;
+      }
+    }
+  }
+}

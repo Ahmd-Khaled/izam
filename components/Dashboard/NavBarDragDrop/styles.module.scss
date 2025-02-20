@@ -1,3 +1,28 @@
 .navBarDragDrop {
   padding: 32px 20px 32px 14px;
+  @media (max-width: $lg-media) {
+    padding-top: 0px;
+  }
+
+  .cancelBtn {
+    display: none;
+    @media (max-width: $lg-media) {
+      margin-top: 43px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      button {
+        color: $red-ED;
+        font-weight: 500;
+        font-size: 17px;
+        line-height: 25.5px;
+        letter-spacing: 0%;
+        opacity: 1;
+        @include transition(0.3s);
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+    }
+  }
 }

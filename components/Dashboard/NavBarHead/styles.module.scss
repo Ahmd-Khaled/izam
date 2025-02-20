@@ -86,6 +86,9 @@
       svg {
         color: $red-ED;
       }
+      @media (max-width: $lg-media) {
+        display: none;
+      }
     }
     .openBtn {
       border-color: $primary;
